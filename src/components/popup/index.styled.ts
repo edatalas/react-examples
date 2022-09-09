@@ -20,11 +20,8 @@ export const Area = styled.div`
       padding: 2rem;
       border-radius: 1rem;
       background-color: #000000c4;
-      border: 2px solid var(--white-color);
-      box-shadow: 0 0.3rem 0 0 var(--plain-shadow);
       font-size: 1.4rem;
       font-weight: 500;
-      color: var(--plain-dark);
       display: flex;
       flex-direction: column;
       align-items: center;

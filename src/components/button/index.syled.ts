@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button<{
     primary?: boolean;
 }>`
-  font-family: var(--body-font) !important;
+  font-family: 'Secular One',sans-serif;
   align-items: center;
   outline: none;
   display: inline-flex;
@@ -20,7 +20,7 @@ export const Button = styled.button<{
 }};
   
   width: ${(props) => {
-    if (props.primary) return "calc(100% - 59px)";
+    if (props.primary) return "calc(50% - 50px)";
 }};
   
   height: ${(props) => {
@@ -40,7 +40,7 @@ export const Button = styled.button<{
 }};
   
   background: ${(props) => {
-    if (props.primary) return "rgba(0, 0, 0, 0.2)";
+    if (props.primary) return "rgba(0, 0, 0, 1)";
 }};
   
   justify-content: ${(props) => {
