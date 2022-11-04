@@ -21,15 +21,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
-      - name: Version app
-        run: |
-          npm version patch
-          date > generated.txt
-          git config --global user.name farunurisonmez
-          git config --global user.email info@farunurisonmez.com
-          git add .
-          git commit -m "generated"
-          git push
+      - name: version upgrade
+        - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+        - run: git config user.name "$GITHUB_ACTOR"
+        - run: npm version patch -m "v%s"
+        - run: VERSION=$(node -p "require('./package.json').version")
+        - run: git tag ${VERSION}
+        - run: git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
+        - run: git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
       - name: publish
         run: npm publish --access public
         env:
