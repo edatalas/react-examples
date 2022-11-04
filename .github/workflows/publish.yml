@@ -22,14 +22,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
       - name: version upgrade
-          run: |
-            git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-            git config user.name "$GITHUB_ACTOR"
-            npm version patch -m "v%s"
-            VERSION=$(node -p "require('./package.json').version")
-            git tag ${VERSION}
-            git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
-            git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
+        run: |
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "$GITHUB_ACTOR"
+          npm version patch -m "v%s"
+          VERSION=$(node -p "require('./package.json').version")
+          git tag ${VERSION}
+          git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
+          git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
       - name: publish
         run: npm publish --access public
         env:
