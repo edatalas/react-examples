@@ -1,7 +1,32 @@
 {
-  "name": "popup-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-ts-popup",
+  "version": "0.0.2",
+  "description": "React popup component that helps you create simple and complex Modals, tooltips, and Menus for your next React App.",
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaruNuriSonmez/react-examples/tree/components/popup"
+  },
+  "keywords": [
+    "react",
+    "popup",
+    "ts",
+    "typescript",
+    "farunurisonmez",
+    "react-component"
+  ],
+  "author": "Faru Nuri Sönmez (FNS)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FaruNuriSonmez/react-examples/issues"
+  },
+  "homepage": "",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -17,12 +42,6 @@
     "styled-components": "^5.3.5",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
