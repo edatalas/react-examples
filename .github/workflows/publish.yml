@@ -21,6 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
+      - name: patch
+        run: npm version patch
       - name: publish
         run: npm publish --access public
         env:
