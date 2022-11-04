@@ -23,14 +23,8 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: Version app
         run: npm version patch
-      - name: Commit app
-        run: |
-          date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
       - name: publish
         run: npm publish --access public
         env:
