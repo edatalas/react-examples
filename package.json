@@ -1,6 +1,6 @@
 {
   "name": "react-ts-popup",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "React popup component that helps you create simple and complex Modals, tooltips, and Menus for your next React App.",
   "private": false,
   "scripts": {
