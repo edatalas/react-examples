@@ -13,3 +13,38 @@
 <p align="center">
   <img src="https://github.com/FaruNuriSonmez/react-examples/blob/components/popup/public/v1.gif" />
 </p>
+
+# Installing / Getting started
+This package is available in NPM repository as react-ts-popup.
+
+```
+npm install reactjs-popup --save
+```
+
+## Include the Component
+
+To start using react popup you just need to import the component from the react-ts-popup package.
+
+```
+import React from 'react';
+import Popup from 'react-ts-popup';
+
+
+export default () => (
+ <Popup show={} title={} buttons={} close={()=> ()}/>
+);
+```
+
+---
+
+# Contributing
+<b>Clone Repo</b>
+
+Fork and then clone the repo
+
+```
+git clone --branch component/popup https://github.com/FaruNuriSonmez/react-examples.git
+```
+
+### Show Your Support
+
