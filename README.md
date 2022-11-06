@@ -18,7 +18,7 @@
 This package is available in NPM repository as react-ts-popup.
 
 ```
-npm install reactjs-popup --save
+npm install react-ts-popup --save
 ```
 
 ## Include the Component
