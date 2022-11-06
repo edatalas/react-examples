@@ -1,6 +1,6 @@
 {
   "name": "react-ts-popup",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "publishConfig": {
     "access": "public"
   },
@@ -33,12 +33,12 @@
     "url": "https://github.com/FaruNuriSonmez/react-examples/issues"
   },
   "scripts": {
-  "build": "fns compile -r",
-  "clean": "fns clean",
-  "lint": "eslint ./src --ext .ts,.tsx",
-  "pretest": "yarn lint",
-  "test": "fns test -s ./jest.setup.js",
-  "update": "fns update -i"
+    "build": "fns compile -r",
+    "clean": "fns clean",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "pretest": "yarn lint",
+    "test": "fns test -s ./jest.setup.js",
+    "update": "fns update -i"
   },
   "dependencies": {
     "node-persist": "^3.1.0"
