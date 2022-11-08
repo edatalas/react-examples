@@ -1,36 +1,40 @@
-name: "publish"
-
+# This is a name of the workflow
+name: build
+# Controls when the workflow will run
 on:
-  push:
-    branches: [ component/popup ]
-
-jobs:
+  # Triggers the workflow on published releases
   release:
-    name: publish
+    types: [published]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: node
-        uses: actions/setup-node@v1
+
+      - name: Checkout
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        # Setup node environment
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org
-      - name: version upgrade
-        run: |
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config user.name "$GITHUB_ACTOR"
-          npm version patch -m "v%s"
-          VERSION=$(node -p "require('./package.json').version")
-          git tag ${VERSION}
-          git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
-          git push "https://$GITHUB_ACTOR:${{ secrets.GIT_AUTH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
-      - name: publish
-        run: npm publish --access public
+          # Node version. Run "node -v" to check the latest version
+          node-version: 16.x
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: yarn && yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish
+        run: yarn publish
+
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          # We need this to our NPM account
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
