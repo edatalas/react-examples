@@ -1,16 +1,29 @@
 {
   "name": "react-ts-popup",
   "version": "0.0.13",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "React popup component that helps you create simple and complex Modals, tooltips, and Menus for your next React App.",
-  "private": false,
-  "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "browser": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "homepage": "",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaruNuriSonmez/react-examples/tree/components/popup"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "popup",
@@ -24,31 +37,33 @@
     "email": "info@farunurisonmez.com",
     "url": "https://github.com/FaruNuriSonmez"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FaruNuriSonmez/react-examples/tree/components/popup"
-  },
-  "homepage": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FaruNuriSonmez/react-examples/issues"
   },
-  "scripts": {
-    "build": "fns compile -r",
-    "clean": "fns clean",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "pretest": "yarn lint",
-    "test": "fns test -s ./jest.setup.js",
-    "update": "fns update -i"
-  },
-  "dependencies": {
-    "node-persist": "^3.1.0"
-  },
   "devDependencies": {
-    "@types/jest": "^28.1.4",
-    "@types/node": "^18.0.3",
-    "@types/node-persist": "^3.1.2",
-    "eslint": "^8.19.0",
-    "eslint-config-styleguidejs": "^2.1.2",
-    "typescript": "^4.7.4"
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4",
+    "styled-components": "^5.3.6",
+    "eslint-plugin-styled-components": "0.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.0.0",
+    "styled-components": "^5.3.6",
+    "@types/styled-components": "^5.1.26",
+    "eslint-plugin-styled-components": "0.0.0"
   }
 }
