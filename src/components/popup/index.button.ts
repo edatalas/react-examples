@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PopupButton = styled.button<{
-  primary?: boolean
+  dark: boolean // dark
 }>`
   font-family: var(--body-font) !important;
   align-items: center;
@@ -10,6 +10,8 @@ export const PopupButton = styled.button<{
   transition: all 0.3s;
   cursor: pointer;
   text-transform: uppercase;
+
+  background-color: ${(props) => (props.theme === 'true' ? 'black' : 'white')}};
 
   @media only screen and (max-width: 575px) {
   }

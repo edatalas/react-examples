@@ -9,6 +9,7 @@ declare type Props = {
     title?: string;
     desc?: string;
     buttons: Button[];
+    dark: boolean;
 };
 declare const Popup: React.FC<Props>;
 export default Popup;

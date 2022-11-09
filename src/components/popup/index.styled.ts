@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const Area = styled.div`
   position: fixed;
@@ -10,10 +11,9 @@ export const Area = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: white;
   backdrop-filter: blur(6px);
   z-index: 1;
-
   .content {
     position: relative;
     width: 600px;
@@ -28,12 +28,10 @@ export const Area = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     @media (max-width: 768px) {
       width: 90vw;
     }
   }
-
   .title {
     font-family: 'Secular One', sans-serif;
     font-size: 3rem;
@@ -41,6 +39,12 @@ export const Area = styled.div`
     margin-bottom: 1rem;
     color: white;
   }
+
+  ${(props) =>
+    props.theme == true &&
+    css`
+      background-color: black;
+    `}
 `
 
 export const Background = styled.div`
@@ -50,3 +54,7 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
 `
+
+Area.propTypes = {
+  theme: PropTypes.bool,
+}

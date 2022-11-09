@@ -14,12 +14,13 @@ type Props = {
   title?: string
   desc?: string
   buttons: Button[]
+  dark: boolean
 }
 
 const Popup: React.FC<Props> = (props) => {
   if (!props.show) return null
   return (
-    <Area>
+    <Area theme={props.dark}>
       <Background onClick={() => props.close()} />
       <div className='content'>
         {props.title && <h3 className='title'>{props.title}</h3>}
@@ -27,7 +28,7 @@ const Popup: React.FC<Props> = (props) => {
         <>
           {props.buttons.map((button, index) => {
             return (
-              <PopupButton primary key={index} onClick={button.action}>
+              <PopupButton dark={props.dark} key={index} onClick={button.action}>
                 {button.title}
               </PopupButton>
             )
