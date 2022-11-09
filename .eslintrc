@@ -13,17 +13,14 @@
     "@typescript-eslint",
     "prettier",
     "react",
-    "react-hooks",
-    "styled-components",
-    "@types/styled-components"
+    "react-hooks"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "styled-components/rule-name": 2
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "react": {

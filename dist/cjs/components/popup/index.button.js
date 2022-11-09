@@ -1,0 +1,8 @@
+"use strict";
+exports.__esModule = true;
+exports.PopupButton = void 0;
+var tslib_1 = require("tslib");
+var styled_components_1 = tslib_1.__importDefault(require("styled-components"));
+exports.PopupButton = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = tslib_1.__makeTemplateObject(["\n  font-family: var(--body-font) !important;\n  align-items: center;\n  outline: none;\n  display: inline-flex;\n  transition: all 0.3s;\n  cursor: pointer;\n  text-transform: uppercase;\n\n  @media only screen and (max-width: 575px) {\n  }\n  @media only screen and (max-width: 767px) {\n  }\n  @media only screen and (min-width: 768px) and (max-width: 991px) {\n  }\n  @media only screen and (min-width: 992px) and (max-width: 1199px) {\n  }\n  @media only screen and (min-width: 1200px) and (max-width: 2000px) {\n  }\n"], ["\n  font-family: var(--body-font) !important;\n  align-items: center;\n  outline: none;\n  display: inline-flex;\n  transition: all 0.3s;\n  cursor: pointer;\n  text-transform: uppercase;\n\n  @media only screen and (max-width: 575px) {\n  }\n  @media only screen and (max-width: 767px) {\n  }\n  @media only screen and (min-width: 768px) and (max-width: 991px) {\n  }\n  @media only screen and (min-width: 992px) and (max-width: 1199px) {\n  }\n  @media only screen and (min-width: 1200px) and (max-width: 2000px) {\n  }\n"])));
+var templateObject_1;
+//# sourceMappingURL=index.button.js.map
