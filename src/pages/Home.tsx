@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
     return(
         <>
-            Home
+            Home v0.0.1
         </>
     )
 }
