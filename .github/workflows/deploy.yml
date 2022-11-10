@@ -8,16 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-      apiKey: ${{ secrets.APIKEY }}
-      authDomain: ${{ secrets.AUTHDOMAIN }}
-      projectId: ${{ secrets.PROJECTID }}
-      storageBucket: ${{ secrets.STORAGEBUCKET }}
-      messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
-      appId: ${{ secrets.APPID }}
-      measurementId: ${{ secrets.MEASUREMENTID }}
-
     strategy:
       matrix:
         node-version: [ 15.x ]
@@ -29,7 +19,7 @@ jobs:
         run: |
           touch .env.local
           echo apiKey: ${{ secrets.APIKEY }}
-          echo uthDomain: ${{ secrets.AUTHDOMAIN }}
+          echo authDomain: ${{ secrets.AUTHDOMAIN }}
           echo projectId: ${{ secrets.PROJECTID }}
           echo storageBucket: ${{ secrets.STORAGEBUCKET }}
           echo messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
