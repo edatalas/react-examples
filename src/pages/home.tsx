@@ -8,4 +8,4 @@ const home = () => {
     )
 }
 
-export default home();
+export default home;
