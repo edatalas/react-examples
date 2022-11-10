@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Create env file
         run: |
-          touch .env.local
+          touch .env
           echo apiKey: ${{ secrets.APIKEY }}
           echo authDomain: ${{ secrets.AUTHDOMAIN }}
           echo projectId: ${{ secrets.PROJECTID }}
