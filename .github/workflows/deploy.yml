@@ -30,11 +30,11 @@ jobs:
           touch .env.local
           echo apiKey: ${{ secrets.APIKEY }}
           echo uthDomain: ${{ secrets.AUTHDOMAIN }}
-          projectId: ${{ secrets.PROJECTID }}
-          storageBucket: ${{ secrets.STORAGEBUCKET }}
-          messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
-          appId: ${{ secrets.APPID }}
-          measurementId: ${{ secrets.MEASUREMENTID }}
+          echo projectId: ${{ secrets.PROJECTID }}
+          echo storageBucket: ${{ secrets.STORAGEBUCKET }}
+          echo messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
+          echo appId: ${{ secrets.APPID }}
+          echo measurementId: ${{ secrets.MEASUREMENTID }}
       - name: Install and Build
         run: npm install && npm run build
         env:
