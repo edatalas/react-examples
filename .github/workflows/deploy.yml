@@ -25,7 +25,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
+      - name: Create env file
+        run: |
+          touch .env.local
+          echo apiKey: ${{ secrets.APIKEY }}
+          echo uthDomain: ${{ secrets.AUTHDOMAIN }}
+          projectId: ${{ secrets.PROJECTID }}
+          storageBucket: ${{ secrets.STORAGEBUCKET }}
+          messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
+          appId: ${{ secrets.APPID }}
+          measurementId: ${{ secrets.MEASUREMENTID }}
       - name: Install and Build
         run: npm install && npm run build
         env:
