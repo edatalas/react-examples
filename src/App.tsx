@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 //Route
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import * as ROUTES from "../src/contants/routes";
