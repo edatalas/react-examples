@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import * as ROUTES from "../src/contants/routes";
 
@@ -11,11 +11,15 @@ import NotFoundPage from "./pages/NotFoundPage";
 function App() {
     const [setIsAuth] = useState(false);
   return (
-              <Routes>
-                  <Route path={ROUTES.HOME} element={<Home/>}/>
-                  <Route path={ROUTES.LOGIN} element={<Login setIsAuth={setIsAuth}/>}/>
-                  <Route path="*" element={<NotFoundPage/>}/>
-              </Routes>
+          <Router>
+              <Route exact path={ROUTES.HOME}>
+                  <Home/>
+              </Route>
+              <Route path={ROUTES.LOGIN}>
+                  <Login setIsAuth={setIsAuth}/>
+              </Route>
+                  <Route component={NotFoundPage} />
+          </Router>
   );
 }
 
