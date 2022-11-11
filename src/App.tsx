@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false);
+    const [setIsAuth] = useState(false);
   return (
       <Router>
         <Routes>
