@@ -1,2 +1,2 @@
-export const HOME = 'react-examples/';
+export const HOME = '/';
 export const LOGIN = 'login/'
