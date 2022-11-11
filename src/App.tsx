@@ -1,4 +1,4 @@
-import React, {Suspense, useState} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import * as ROUTES from "../src/contants/routes";
 
