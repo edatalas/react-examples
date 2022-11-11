@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
-
+import React, {useEffect, useState} from 'react';
+//Route
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-
-
 import * as ROUTES from "../src/contants/routes";
-
+//Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+//Navigation
+import Navbar from "./components/navbar";
 
 function App() {
-    const [setIsAuth] = useState(false);
-  return (
-      <BrowserRouter basename="/react-examples">
-          <Routes>
-              <Route path={ROUTES.HOME} element={<Home/>}/>
-              <Route path={ROUTES.LOGIN} element={<Login setIsAuth={setIsAuth}/>}/>
-          </Routes>
-      </BrowserRouter>
-  );
+    return (
+        <BrowserRouter basename="/react-examples">
+            <Navbar/>
+            <Routes>
+                <Route path={ROUTES.HOME} element={<Home/>}/>
+                <Route path={ROUTES.LOGIN} element={<Login/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
