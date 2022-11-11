@@ -11,7 +11,7 @@ const Login:React.FC<Props> = ({setIsAuth}) => {
     const signInWithGoogle = () => {
       signInWithPopup(auth,provider).then((result)=>{
           localStorage.setItem("isAuth",String(true));
-          setIsAuth(true);
+          window.location.href = "/";
       })
     }
 

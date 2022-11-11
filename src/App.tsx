@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Route, HashRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 import * as ROUTES from "../src/contants/routes";
@@ -11,14 +11,12 @@ import Login from "./pages/Login";
 function App() {
     const [setIsAuth] = useState(false);
   return (
-      <HashRouter>
-          <Route exact path={ROUTES.HOME}>
-              <Home />
-          </Route>
-          <Route path={ROUTES.LOGIN}>
-              <Login setIsAuth={setIsAuth}/>
-          </Route>
-      </HashRouter>
+      <BrowserRouter basename="/react-examples">
+          <Routes>
+              <Route path={ROUTES.HOME} element={<Home/>}/>
+              <Route path={ROUTES.LOGIN} element={<Login setIsAuth={setIsAuth}/>}/>
+          </Routes>
+      </BrowserRouter>
   );
 }
 
