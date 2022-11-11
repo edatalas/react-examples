@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Route, HashRouter, Router} from "react-router-dom";
+import {Route, HashRouter} from "react-router-dom";
 
 
 import * as ROUTES from "../src/contants/routes";
