@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {Routes, Route} from "react-router-dom";
 
@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-    const [is,setIsAuth] = useState(false);
+    const [setIsAuth] = useState(false);
   return (
               <Routes>
                   <Route path={ROUTES.HOME} element={<Home/>}/>
