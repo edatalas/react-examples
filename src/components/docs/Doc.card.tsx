@@ -21,7 +21,8 @@ const DocCard:React.FC<Props> = ( props) => {
                 _setCategory(prevEmployees => [...prevEmployees, {_id:e}])
             ))
         }
-    }),[props._data]);
+        // eslint-disable-next-line
+    }),[]);
 
     return(
         <div className="col-xl-4 col-lg-4 col-md-6">

@@ -25,7 +25,8 @@ const DocCategories:React.FC<Props> = (props) => {
                 _setDoc(prevEmployees => [...prevEmployees, {_id:data.id}])
             ))
         ))
-    },[])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     return(
         <>

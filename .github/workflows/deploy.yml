@@ -12,7 +12,7 @@ jobs:
       matrix:
         node-version: [ 15.x ]
     env:
-      CI: true
+      CI: false
     steps:
       - name: Checkout
         uses: actions/checkout@v1

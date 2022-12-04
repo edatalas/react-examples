@@ -20,14 +20,13 @@ const Home = () => {
            getDoc(doc.ref)
         ))
 
-        const pro = Promise.all(promises).then(c=>(
+        Promise.all(promises).then(c=>(
             c.map(result=>{
-                // @ts-ignore
-                console.log()
                 // @ts-ignore
                 _setDoc(prevEmployees => [...prevEmployees, {_id:result.id, _data:result.ref}]);
             })
         ))
+        // eslint-disable-next-line
     }),[]);
 
     return(
