@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {signOut} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
-import { auth } from "../../firebase-config";
 //Navigation
 import * as ROUTES from "../../contants/routes"
 
@@ -13,11 +11,8 @@ const Navbar = () => {
     let navigate = useNavigate();
     const isAuth = localStorage.getItem("isAuth")
 
-    const signUserOut = () => {
-        signOut(auth).then(() => {
-            localStorage.removeItem("isAuth");
-            navigate("/login");
-        })
+    const profile = () => {
+        navigate("/profile");
     }
     return(
         <Wrapper>
@@ -42,14 +37,14 @@ const Navbar = () => {
                         {isAuth === "false" || isAuth === null ?
                             ( <Link to={ROUTES.LOGIN}>Login</Link> ) : (
                                 <>
-                                    <Link to={ROUTES.LIBCREATEDOC}>Create Lib Doc</Link>
-                                    <button onClick={signUserOut}> Log Out</button>
+                                    <button className="dashboard-btn" onClick={profile}>
+                                        Dashboard
+                                    </button>
                                 </>
                             )
                         }
                     </div>
                 </div>
-
             </div>
         </Wrapper>
     )
