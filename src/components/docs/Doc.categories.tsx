@@ -2,39 +2,42 @@ import React, {useEffect, useState} from "react";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../lib/firebase-config";
 
+import DocFeatures from "./Doc.features";
+
 interface Props {
     _id:string;
     _categories:string;
 }
 
-type DocsCategories = {
+type Categories = {
     _id: string;
 };
 
 
 const DocCategories:React.FC<Props> = (props) => {
 
-    const [_getDoc, _setDoc] = useState<DocsCategories[]>([]);
+    const [_getCategories, _setCategories] = useState<Categories[]>([]);
 
     const category = collection(db, "docs",props._id+"/"+props._categories)
 
     useEffect(()=>{
-        // @ts-ignore
         getDocs(category).then(value => (
             value.docs.map(data=>(
-                _setDoc(prevEmployees => [...prevEmployees, {_id:data.id}])
+                _setCategories(prevEmployees => [...prevEmployees, {_id:data.id}])
             ))
         ))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     return(
         <>
             {
-                _getDoc.map(value => (
+                _getCategories.map(value => (
 
                     <li key={value._id}>
-                        {value._id}
+                        <a href="#">{value._id}</a>
+                        <ul>
+                            <DocFeatures _doc={props._id} _category={value._id}/>
+                        </ul>
                     </li>
                 ))
             }

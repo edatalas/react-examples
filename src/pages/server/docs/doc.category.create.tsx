@@ -20,15 +20,8 @@ const DocCategoryCreate = () =>{
     //State Doc Name
     const [_getDocName, _setDocName] = useState<string>("blank");
 
-
     //State Doc Category Name
     const [_getDocCatName, _setDocCatName] = useState("blank");
-
-    //Firebase Docs Reference
-    //const DocsCollectionRef = collection(db,"s")
-
-    //Firebase Doc Category Name
-    //const DocCategoryRef = collection(DocsCollectionRef, _getDocCatName);
 
     const x = doc(db, "docs",_getDocName);
 

@@ -22,11 +22,9 @@ const Home = () => {
 
         Promise.all(promises).then(c=>(
             c.map(result=>{
-                // @ts-ignore
                 _setDoc(prevEmployees => [...prevEmployees, {_id:result.id, _data:result.ref}]);
             })
         ))
-        // eslint-disable-next-line
     }),[]);
 
     return(
