@@ -1,4 +1,4 @@
-# react-examples
+# React Examples
 
 
 | Name | Message |
