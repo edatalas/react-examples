@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../lib/firebase-config";
 
 import DocFeatures from "./Doc.features";
+
+import * as ROUTES from "../../contants/routes";
 
 interface Props {
     _id:string;
@@ -34,7 +38,7 @@ const DocCategories:React.FC<Props> = (props) => {
                 _getCategories.map(value => (
 
                     <li key={value._id}>
-                        <a href="#">{value._id}</a>
+                        <Link to={"/doc/"+value._id}>{value._id}</Link>
                         <ul>
                             <DocFeatures _doc={props._id} _category={value._id}/>
                         </ul>

@@ -8,16 +8,23 @@ import {getDocsData} from "../../../services/globals";
 //Styled Document Feature Create
 import {DocArea} from "./doc.created.styled";
 
+import Editor from "../../../lib/editor";
+import {$getRoot, EditorState} from "lexical";
+
+
+
+
 type Docs = {
     _name?: string,
-    _category?:string
 };
 
 type Category = {
-    _name?: string,
+    _name?: string[],
 };
 
+
 const DocFeatureCreate = () => {
+
     let navigation = useNavigate();
 
     //Document Features State
@@ -25,10 +32,12 @@ const DocFeatureCreate = () => {
 
     //Document State
     const [_getDoc, _setDoc] = useState<Docs[]>([]);
-    const [_getDocName, _setDocName] = useState<string>("component");
+
+    const [_getDocName, _setDocName] = useState<string>("blank");
 
     //Document Category State
     const [_getCategory, _setCategory] = useState<Category[]>([]);
+
     const [_getCategoryName, _setCategoryName] = useState<string>("blank");
 
     //Firebase Collection Reference
@@ -42,7 +51,11 @@ const DocFeatureCreate = () => {
         const DocCategoryRef = collection(db,"docs") //Not Object-Oriented
         const t = doc(DocCategoryRef,docName);
         getDoc(t).then(y=>(
-            _setCategory(prevState => [...prevState, {_name:y.get("category")}])
+            // @ts-ignore
+            y.get("category").map((n,m)=>{
+                _setCategory(prevState => [...prevState, {_name:n}])
+                _setCategoryName(n)
+            })
         ))
     }
 
@@ -62,12 +75,24 @@ const DocFeatureCreate = () => {
         })
     }
 
+
+    const onChange:(editorState: EditorState) => Promise<void> = async (props) => {
+        return props.read(()=> {
+            const root = $getRoot();
+            const selection = getSelection();
+            console.log(root.__cachedText)
+        })
+    }
+
     useEffect(()=>{
         getDocsData().then((result)=>{
             // @ts-ignore
             result.docs.map((data)=>{
                 getDoc(doc(db,"docs",data.id)).then((e)=>{
-                    _setDoc(prevEmployees => [...prevEmployees, {_name:data.id, _category:Object(e.data()).name}]);
+                    // @ts-ignore
+                    _setDoc(prevEmployees => [...prevEmployees, {_name:e.data().getDocName}]);
+                    _setDocName(data.id);
+                    getCategory(data.id);
                 })
             })
         })
@@ -83,6 +108,7 @@ const DocFeatureCreate = () => {
                         {
                             <select
                                 onChange={(e) =>{
+                                    _setCategory([])
                                     getCategory(e.target.value)
                                 }}
                             >
@@ -99,14 +125,13 @@ const DocFeatureCreate = () => {
                             </select>
                         }
                         {
-                            <select
-                                onChange={(e) =>{
-                                    _setCategoryName(e.target.value)
-                                }}
-                            >
+                            <select>
                                 {
-                                    _getCategory.map(key => (
-                                        <option key={key._name} value={key._name}>
+                                    _getCategory.map((key,index) => (
+                                        <option
+                                            key={index}
+                                            value={key._name}
+                                        >
                                             {key._name}
                                         </option>
                                     ))
@@ -118,6 +143,7 @@ const DocFeatureCreate = () => {
                                    _setDocFeatureName(event.target.value)
                                })}
                         />
+                        <Editor onChange={(editorState) =>onChange(editorState)}/>
                         <button onClick={docFeatureCreate}>Submit Post</button>
                     </div>
                 </div>

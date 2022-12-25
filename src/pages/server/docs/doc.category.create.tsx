@@ -30,7 +30,6 @@ const DocCategoryCreate = () =>{
     const z = doc(y,_getDocCatName)
 
     const docCategoryCreate = async () => {
-
         await setDoc(z, {
             name:_getDocCatName,
             author: {name: auth.currentUser?.displayName, id: auth.currentUser?.uid}
@@ -46,13 +45,20 @@ const DocCategoryCreate = () =>{
     }
 
     useEffect(()=> {
-        getDocsData().then((result)=>{
-            // @ts-ignore
-            result.docs.map((data)=>{
-                const id = data.id;
-                _setDoc(prevEmployees => [...prevEmployees, {name:id}]);
+        getDocsData()
+            .then((result)=>{
+                // @ts-ignore
+                result.docs.map((data)=>{
+                    _setDoc(prevEmployees => [...prevEmployees, {name:data.id}]);
+                    _setDocName(data.id);
+                })
             })
-        })
+            .catch((err)=>{
+                console.log(err.name)
+            })
+            .finally(() => {
+            })
+
     },[]);
 
     return(

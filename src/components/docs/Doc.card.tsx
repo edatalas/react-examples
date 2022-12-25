@@ -1,4 +1,3 @@
-
 import React, {useEffect, useState} from "react";
 import DocCategories from "./Doc.categories";
 import {onSnapshot, DocumentReference} from "firebase/firestore";
@@ -21,7 +20,6 @@ const DocCard:React.FC<Props> = ( props) => {
                 _setCategory(prevEmployees => [...prevEmployees, {_id:e}])
             ))
         }
-        // eslint-disable-next-line
     }),[]);
 
     return(

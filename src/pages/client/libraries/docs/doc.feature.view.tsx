@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import Header from "../../../../components/header";
 
-const DocView = () => {
+const DocFeatureView = () => {
     const { slug } = useParams();
 
     return(
@@ -24,4 +24,4 @@ const DocView = () => {
     )
 }
 
-export default DocView;
+export default DocFeatureView;

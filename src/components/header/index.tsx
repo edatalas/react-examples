@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import * as ROUTES from "../../contants/routes";
 
 interface Props {
-    title:string;
+    title:string & any;
     children?: JSX.Element,
 }
 
