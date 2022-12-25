@@ -1,15 +1,27 @@
 {
   "files": {
     "main.css": "/react-examples/static/css/main.c59cc657.css",
-    "main.js": "/react-examples/static/js/main.3e383d0c.js",
+    "main.js": "/react-examples/static/js/main.8991e025.js",
     "static/js/787.b18cc042.chunk.js": "/react-examples/static/js/787.b18cc042.chunk.js",
     "index.html": "/react-examples/index.html",
+    "static/media/type-strikethrough.svg": "/react-examples/static/media/type-strikethrough.4e4e51508c25a186259b02988e912c9f.svg",
+    "static/media/type-bold.svg": "/react-examples/static/media/type-bold.b3bec3f33045771f94847284840c012b.svg",
+    "static/media/text-paragraph.svg": "/react-examples/static/media/text-paragraph.8348e6003a7e4f95ce8194e1596b7f91.svg",
+    "static/media/text-center.svg": "/react-examples/static/media/text-center.3fd810bd745c29caf4505202c343d0e4.svg",
+    "static/media/text-right.svg": "/react-examples/static/media/text-right.61509b2074a28ce8b9ae8cad1b057321.svg",
+    "static/media/justify.svg": "/react-examples/static/media/justify.272ceba1bfc67731a9e358a3453a6093.svg",
+    "static/media/text-left.svg": "/react-examples/static/media/text-left.b3ef9e55f83bbfd9e84e441672802dc6.svg",
+    "static/media/link.svg": "/react-examples/static/media/link.96e00df743114f8b0911275a0cc958e0.svg",
+    "static/media/code.svg": "/react-examples/static/media/code.2987dad7a439913f1b19f375d46a44ab.svg",
+    "static/media/type-italic.svg": "/react-examples/static/media/type-italic.670b02764e0fee5ece6ef2865de9d510.svg",
+    "static/media/type-underline.svg": "/react-examples/static/media/type-underline.4b2b9a7873f0aab6deee6b39d35a49d9.svg",
+    "static/media/chevron-down.svg": "/react-examples/static/media/chevron-down.9157c9ad3026035b236bf3a84122b787.svg",
     "main.c59cc657.css.map": "/react-examples/static/css/main.c59cc657.css.map",
-    "main.3e383d0c.js.map": "/react-examples/static/js/main.3e383d0c.js.map",
+    "main.8991e025.js.map": "/react-examples/static/js/main.8991e025.js.map",
     "787.b18cc042.chunk.js.map": "/react-examples/static/js/787.b18cc042.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c59cc657.css",
-    "static/js/main.3e383d0c.js"
+    "static/js/main.8991e025.js"
   ]
 }
