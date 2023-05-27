@@ -1,0 +1,58 @@
+{
+  "id": 6,
+  "user_permissions": [],
+  "groups": [
+    {
+      "id": 1,
+      "permissions": [
+        {
+          "id": 116,
+          "name": "Can view dashboard",
+          "codename": "view_dashboard",
+          "content_type": 29
+        }
+      ],
+      "name": "DEFAULT-GROUP"
+    }
+  ],
+  "profile": {
+    "id": 6,
+    "gsm": "5397716655",
+    "birth_date": "1995-11-02",
+    "bio": "",
+    "status": true
+  },
+  "employee_profile": {
+    "id": 2,
+    "corporate": {
+      "id": 1,
+      "branch": null,
+      "name": "FNSOFTWORKS",
+      "short_name": "FNSOFTWORKS",
+      "descriptions": "",
+      "status": true
+    },
+    "branch": {
+      "id": 1,
+      "name": "REALITYMODEON",
+      "descriptions": "",
+      "status": true,
+      "corporate": 1
+    },
+    "type": "SOFTWARE ENGINEER",
+    "department": "AR-GE",
+    "first_name": "Faru Nuri̇",
+    "last_name": "SÖNMEZ",
+    "title": "SOFTWARE ENGINEER",
+    "descriptions": "",
+    "status": true,
+  },
+  "role": "DEV",
+  "is_superuser": false,
+  "username": "farunurisonmez",
+  "email": "info@farunurisonmez.com",
+  "is_staff": true,
+  "is_active": true,
+  "first_name": "Faru Nuri",
+  "last_name": "SÖNMEZ"
+}
