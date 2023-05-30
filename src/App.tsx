@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import React from 'react';
 
+import 'leaflet/dist/leaflet.css';
+import GeoMap from "./components/geomap/geo.map";
+import OpenStreetMap from "./components/geomap/openStreet.map";
+import GeoMapDrawer from "./components/navigation/drawer/geo.map.drawer";
+import {Container} from "@mui/material";
 const App = () => {
     return (
-      <MapContainer
-        center={[38.734802, 35.467987]}
-        zoom={10}
-        scrollWheelZoom={true}
-        style={{ width: '100vw', height: '100vh' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-      </MapContainer>
+        <GeoMap map={<OpenStreetMap drawer={<GeoMapDrawer/>}/>}></GeoMap>
     );
 }
 
