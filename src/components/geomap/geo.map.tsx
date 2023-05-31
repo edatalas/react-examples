@@ -1,5 +1,5 @@
 import React from "react"
-import {Grid} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 
 interface IGeoMap {
     map: JSX.Element[] | JSX.Element
