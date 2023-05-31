@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "expedition_no": "23OZ0010EX",
+    "loads": [],
+    "position_status": "13 - YÜKLENDİ TEYİT BEKLİYOR",
+    "position_no": "23OZ0010EX",
+    "position_type": 0,
+    "row_number": 0,
+    "is_completed": false,
+    "descriptions": "",
+    "status": true,
+    "created_date": "2023-05-19T14:09:00.606352+03:00",
+    "updated_date": "2023-05-30T14:49:24.111047+03:00",
+    "expedition": 1,
+    "driver": null,
+    "truck": null,
+    "trailer": 598
+  },
+  {
+    "id": 550,
+    "expedition_no": "23OZ0031YI",
+    "loads": [],
+    "position_status": "99 - BOŞALTILDI",
+    "position_no": "23OZ0031YI",
+    "position_type": 3,
+    "row_number": 0,
+    "is_completed": true,
+    "descriptions": "GÜLER NAKLİYAT KOCAELİ YÜKLEME ANKARA BOŞALTMA",
+    "status": true,
+    "created_date": "2023-05-23T11:52:56.829594+03:00",
+    "updated_date": "2023-05-24T13:17:01.771643+03:00",
+    "expedition": 480,
+    "driver": null,
+    "truck": 188,
+    "trailer": 453
+  }
+]
+
