@@ -5,21 +5,24 @@ import { MapContainer, Marker, Popup, TileLayer, useMap, ZoomControl} from "reac
 import 'leaflet/dist/leaflet.css';
 import {Grid} from "@mui/material";
 import L from 'leaflet';
+import {withMap, MapDrawerButton} from "../button/map.drawer.button";
+
 interface IOpenStreetMap {
-    drawer: JSX.Element[] | JSX.Element
+    drawers: JSX.Element[] | JSX.Element
+    leftDrawerOpen: (status:boolean) => void
 }
 
-const OpenStreeMap = ({drawer}:IOpenStreetMap) => {
+const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
     const truckIcon = L.icon({
         iconUrl: 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-512.png',
         iconSize: [32, 32],
     });
 
-    return(
-        <Grid sx={{
+    const DescriptionWithMap = withMap(MapDrawerButton);
 
-        }}>
-            {drawer}
+    return(
+        <Grid>
+            {drawers}
             <MapContainer
                 center={[38.734802, 35.467987]}
                 zoom={13}
@@ -39,6 +42,7 @@ const OpenStreeMap = ({drawer}:IOpenStreetMap) => {
                         Truck Location
                     </Popup>
                 </Marker>
+                <DescriptionWithMap drawer={(status)=>leftDrawerOpen(status)}></DescriptionWithMap>
                 <ZoomControl position={"bottomright"}/>
             </MapContainer>
         </Grid>
