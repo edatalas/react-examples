@@ -2,9 +2,7 @@ import React from "react"
 import {Accordion, AccordionSummary, Card, CardContent, List, ListItem} from "@mui/material";
 import expeditionsData from "../../../data/expeditions/expeditions.json"
 
-const GeoMapDrawer = () => {
-
-
+const MapLeftDrawer = () => {
     return(
         <Card sx={{
             backgroundColor: "smoke",
@@ -46,4 +44,4 @@ const GeoMapDrawer = () => {
     )
 }
 
-export default GeoMapDrawer
+export default MapLeftDrawer
