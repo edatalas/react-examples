@@ -29,7 +29,6 @@ export const MapDrawerButton: React.FC<IMapDrawerButton> = ({ drawer }) => {
                         <Button variant="contained" onClick={handleButtonClick}>
                             Expeditions
                         </Button>
-
                     );
 
                     ReactDOM.render(reactButton, button);
