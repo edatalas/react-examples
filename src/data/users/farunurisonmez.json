@@ -45,7 +45,7 @@
     "last_name": "SÖNMEZ",
     "title": "SOFTWARE ENGINEER",
     "descriptions": "",
-    "status": true,
+    "status": true
   },
   "role": "DEV",
   "is_superuser": false,
