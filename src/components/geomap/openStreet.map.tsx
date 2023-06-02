@@ -1,6 +1,7 @@
-import React,{useState, useRef, useEffect } from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 
-import { MapContainer,
+import {
+    MapContainer,
     Marker,
     Popup,
     TileLayer,
@@ -11,7 +12,7 @@ import { MapContainer,
     Polyline,
     Tooltip
 } from "react-leaflet";
-import { LatLngExpression } from 'leaflet';
+import {LatLngExpression} from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 import {Grid} from "@mui/material";
@@ -20,10 +21,10 @@ import {withMap, MapDrawerButton} from "../button/map.drawer.button";
 
 interface IOpenStreetMap {
     drawers: JSX.Element[] | JSX.Element
-    leftDrawerOpen: (status:boolean) => void
+    leftDrawerOpen: (status: boolean) => void
 }
 
-const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
+const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
     const truckIcon = L.icon({
         iconUrl: 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-512.png',
         iconSize: [32, 32],
@@ -42,7 +43,7 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
 
 
     const handleMapClick = (event: L.LeafletMouseEvent) => {
-        const { lat, lng } = event.latlng;
+        const {lat, lng} = event.latlng;
         if (!circleCenter) {
             setCircleCenter([lat, lng]);
             setIsSecondClick(false);
@@ -97,7 +98,7 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
 
     const handleMouseMove = (event: L.LeafletMouseEvent) => {
         if (isDragging && circleCenter && !isSecondClick) {
-            const { lat, lng } = event.latlng;
+            const {lat, lng} = event.latlng;
             const prevLat = prevMousePosition.current ? prevMousePosition.current[0] : lat;
             const prevLng = prevMousePosition.current ? prevMousePosition.current[1] : lng;
             const distance = Math.sqrt(Math.pow(lat - circleCenter[0], 2) + Math.pow(lng - circleCenter[1], 2));
@@ -117,7 +118,6 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
         setIsDragging(true);
     };
 
-
     const MapEventsHandler = () => {
         const map = useMap();
         map.on('click', handleMapClick)
@@ -126,7 +126,6 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
         map.on('mouseup', handleMouseUp);
         useEffect(() => {
             if (isDrawing) {
-
                 map.on('mousemove', handleMouseMove);
                 map.on('mousedown', handleMouseDown);
                 map.on('mouseup', handleMouseUp);
@@ -142,10 +141,9 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
         return null;
     };
 
-
     const lineCoordinates: LatLngExpression[] = circleCenter ? [[...circleCenter], [circleCenter[0] + circleRadius / 100000, circleCenter[1]]] : [];
 
-    return(
+    return (
         <Grid>
             {drawers}
             <MapContainer
@@ -156,8 +154,8 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
                 style={{
                     width: '99vw',
                     height: '99vh',
-                    position:"absolute",
-                    overflow:""
+                    position: "absolute",
+                    overflow: ""
                 }}
             >
 
@@ -169,7 +167,7 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
                         Truck Location
                     </Popup>
                 </Marker>
-                {circleCenter && <Circle center={circleCenter} radius={circleRadius} />}
+                {circleCenter && <Circle center={circleCenter} radius={circleRadius}/>}
                 {lineCoordinates.length > 0 && (
                     <>
                         <Polyline positions={lineCoordinates}/>
@@ -178,16 +176,19 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}:IOpenStreetMap) => {
 
                 {circleCenter && circleRadius && (
                     <>
-                        <Circle center={circleCenter} radius={circleRadius} />
+                        <Circle center={circleCenter} radius={circleRadius}/>
                         <CircleLabel/>
                     </>
                 )}
-                {circleCenter && <CircleLabel />}
-                {circleCenter && <MapEventsHandler />}
-
-                <DescriptionWithMap drawer={(status)=>leftDrawerOpen(status)}></DescriptionWithMap>
+                {
+                    circleCenter && <CircleLabel/>
+                }
+                {
+                    circleCenter && <MapEventsHandler/>
+                }
+                <DescriptionWithMap drawer={(status) => leftDrawerOpen(status)}></DescriptionWithMap>
                 <ZoomControl position={"bottomright"}/>
-                <MapEventsHandler />
+                <MapEventsHandler/>
             </MapContainer>
         </Grid>
     )
