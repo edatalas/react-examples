@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {ThemeProvider} from "@mui/material";
+import {darkTheme, lightTheme} from "./styled/themes.index";
+const RootComponent = () => {
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <App />
-);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const theme = isDarkMode ? darkTheme : lightTheme;
+    return (
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
+    );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<RootComponent />, document.getElementById('root'));
+
