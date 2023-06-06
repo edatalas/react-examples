@@ -20,11 +20,10 @@ import L from 'leaflet';
 import {withMap, MapDrawerButton} from "../button/map.drawer.button";
 
 interface IOpenStreetMap {
-    drawers: JSX.Element[] | JSX.Element
     leftDrawerOpen: (status: boolean) => void
 }
 
-const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
+const OpenStreeMap = (props: IOpenStreetMap) => {
     const truckIcon = L.icon({
         iconUrl: 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-512.png',
         iconSize: [32, 32],
@@ -145,7 +144,6 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
 
     return (
         <Grid>
-            {drawers}
             <MapContainer
                 center={[38.734802, 35.467987]}
                 zoom={13}
@@ -158,9 +156,7 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
                     overflow: ""
                 }}
             >
-
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                 <Marker position={[38.734802, 35.467987]} title={"Araç Bilgisi"} icon={truckIcon}>
                     <Popup>
@@ -173,7 +169,6 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
                         <Polyline positions={lineCoordinates}/>
                     </>
                 )}
-
                 {circleCenter && circleRadius && (
                     <>
                         <Circle center={circleCenter} radius={circleRadius}/>
@@ -186,7 +181,7 @@ const OpenStreeMap = ({drawers, leftDrawerOpen}: IOpenStreetMap) => {
                 {
                     circleCenter && <MapEventsHandler/>
                 }
-                <DescriptionWithMap drawer={(status) => leftDrawerOpen(status)}></DescriptionWithMap>
+                <DescriptionWithMap drawer={(status) => props.leftDrawerOpen(status)}></DescriptionWithMap>
                 <ZoomControl position={"bottomright"}/>
                 <MapEventsHandler/>
             </MapContainer>

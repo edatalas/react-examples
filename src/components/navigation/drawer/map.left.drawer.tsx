@@ -33,19 +33,16 @@ const MapLeftDrawer = ({drawerOpen, drawerClose, rightDrawerOpen}: IMapLeftDrawe
         setDrawerOpen(newOpen);
     };
     return (
-        <SwipeableDrawer
-            container={container}
-            anchor="left"
-            open={getDrawerOpen}
-            onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(true)}
-            swipeAreaWidth={0}
-            disableSwipeToOpen={false}
-            ModalProps={{
-                keepMounted: true
-            }}
-        >
-            <Container sx={{
+        <Card sx={{
+            backgroundColor: "background.default",
+            position: "absolute",
+            height: "91vh",
+            width: 400,
+            zIndex: 500,
+            background: "palette.background.default",
+            opacity: 0.8
+        }}>
+            <CardContent sx={{
                 marginTop: "5rem"
             }}>
                 <Box sx={{
@@ -56,8 +53,7 @@ const MapLeftDrawer = ({drawerOpen, drawerClose, rightDrawerOpen}: IMapLeftDrawe
                             width: '100%',
                             //backgroundColor: "rgba(0,0,0,0.7)",
                             position: 'relative',
-                            overflow: 'auto',
-                            maxHeight: '700px',
+                            overflow: 'auto'
                         }}
                     >
                         {
@@ -71,12 +67,12 @@ const MapLeftDrawer = ({drawerOpen, drawerClose, rightDrawerOpen}: IMapLeftDrawe
                                         <AccordionSummary>
                                             {item.expedition_no}
                                         </AccordionSummary>
-                                        <AccordionDetails onClick={()=>rightDrawerOpen(true)}>
+                                        <AccordionDetails onClick={() => rightDrawerOpen(true)}>
                                             {
                                                 item.loads.length > 0 ?
                                                     <>
                                                         {
-                                                            item.loads.map((load:any)=>{
+                                                            item.loads.map((load: any) => {
                                                                 return load.load_no
                                                             })
                                                         }
@@ -84,7 +80,6 @@ const MapLeftDrawer = ({drawerOpen, drawerClose, rightDrawerOpen}: IMapLeftDrawe
                                                     <>
                                                         No Load Information Found
                                                     </>
-
                                             }
                                         </AccordionDetails>
                                     </Accordion>
@@ -93,8 +88,8 @@ const MapLeftDrawer = ({drawerOpen, drawerClose, rightDrawerOpen}: IMapLeftDrawe
                         }
                     </List>
                 </Box>
-            </Container>
-        </SwipeableDrawer>
+            </CardContent>
+        </Card>
     )
 }
 
